@@ -27,7 +27,7 @@ hog_features = np.array(list_hog_fd, 'float64')
 pp = preprocessing.StandardScaler().fit(hog_features)
 hog_features = pp.transform(hog_features)
 
-print "Count of digits in dataset", Counter(labels)
+print("Count of digits in dataset", Counter(labels))
 
 # Create an linear SVM object
 clf = LinearSVC()
