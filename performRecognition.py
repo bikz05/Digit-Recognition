@@ -1,39 +1,56 @@
 #!/usr/bin/python
 
 # Import the modules
+import cv2
 import joblib
-from sklearn import datasets
 from skimage.feature import hog
-from sklearn.svm import LinearSVC
-from sklearn import preprocessing
 import numpy as np
-from collections import Counter
+import argparse as ap
 
-# Load the dataset
-dataset = datasets.fetch_openml('mnist_784')
+# Get the path of the training set
+parser = ap.ArgumentParser()
+parser.add_argument("-c", "--classiferPath", help="Path to Classifier File", required="True")
+parser.add_argument("-i", "--image", help="Path to Image", required="True")
+args = vars(parser.parse_args())
 
-# Extract the features and labels
-features = np.array(dataset.data, 'int16') 
-labels = np.array(dataset.target, 'int')
+# Load the classifier
+clf, pp = joblib.load(args["classiferPath"])
 
-# Extract the hog features
-list_hog_fd = []
-for feature in features:
-    fd = hog(feature.reshape((28, 28)), orientations=9, pixels_per_cell=(14, 14), cells_per_block=(1, 1), visualise=False)
-    list_hog_fd.append(fd)
-hog_features = np.array(list_hog_fd, 'float64')
+# Read the input image 
+im = cv2.imread(args["image"])
 
-# Normalize the features
-pp = preprocessing.StandardScaler().fit(hog_features)
-hog_features = pp.transform(hog_features)
+# Convert to grayscale and apply Gaussian filtering
+im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+im_gray = cv2.GaussianBlur(im_gray, (5, 5), 0)
 
-print ("Count of digits in dataset", Counter(labels))
+# Threshold the image
+ret, im_th = cv2.threshold(im_gray, 90, 255, cv2.THRESH_BINARY_INV)
 
-# Create an linear SVM object
-clf = LinearSVC()
+# Find contours in the image
+ctrs, hier = cv2.findContours(im_th.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-# Perform the training
-clf.fit(hog_features, labels)
+# Get rectangles contains each contour
+rects = [cv2.boundingRect(ctr) for ctr in ctrs]
 
-# Save the classifier
-joblib.dump((clf, pp), "digits_cls.pkl", compress=3)
+# For each rectangular region, calculate HOG features and predict
+# the digit using Linear SVM.
+for rect in rects:
+    # Draw the rectangles
+    cv2.rectangle(im, (rect[0], rect[1]), (rect[0] + rect[2], rect[1] + rect[3]), (0, 255, 0), 3) 
+    # Make the rectangular region around the digit
+    leng = int(rect[3] * 1.6)
+    pt1 = int(rect[1] + rect[3] // 2 - leng // 2)
+    pt2 = int(rect[0] + rect[2] // 2 - leng // 2)
+    roi = im_th[pt1:pt1+leng, pt2:pt2+leng]
+    # Resize the image
+    roi = cv2.resize(roi, (28, 28), interpolation=cv2.INTER_AREA)
+    roi = cv2.dilate(roi, (3, 3))
+    # Calculate the HOG features
+    roi_hog_fd = hog(roi, orientations=9, pixels_per_cell=(14, 14), cells_per_block=(1, 1), visualise=False)
+    roi_hog_fd = pp.transform(np.array([roi_hog_fd], 'float64'))
+    nbr = clf.predict(roi_hog_fd)
+    cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
+
+cv2.namedWindow("Resulting Image with Rectangular ROIs", cv2.WINDOW_NORMAL)
+cv2.imshow("Resulting Image with Rectangular ROIs", im)
+cv2.waitKey()
