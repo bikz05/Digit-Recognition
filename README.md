@@ -29,7 +29,7 @@ cd digit-recognition
 ```
 * The next step is to train the classifier. To do so run the script `generateClassifier.py`. It will produce the classifier named `digits_cls.pkl`. 
 
-**NOTE** - *I have already created the `digits_cls.pkl`, so this step is not necessary.*
+**NOTE** - *Already created `digits_cls.pkl` is done using python2, please run generateClassifier.py to generate pkl file*
 ```python
 python generateClassifier.py
 ```
