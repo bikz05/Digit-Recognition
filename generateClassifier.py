@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Import the modules
-from sklearn.externals import joblib
+import joblib
 from sklearn import datasets
 from skimage.feature import hog
 from sklearn.svm import LinearSVC
@@ -10,7 +10,7 @@ import numpy as np
 from collections import Counter
 
 # Load the dataset
-dataset = datasets.fetch_mldata("MNIST Original")
+dataset = datasets.fetch_openml('mnist_784')
 
 # Extract the features and labels
 features = np.array(dataset.data, 'int16') 
@@ -27,7 +27,7 @@ hog_features = np.array(list_hog_fd, 'float64')
 pp = preprocessing.StandardScaler().fit(hog_features)
 hog_features = pp.transform(hog_features)
 
-print "Count of digits in dataset", Counter(labels)
+print ("Count of digits in dataset", Counter(labels))
 
 # Create an linear SVM object
 clf = LinearSVC()

@@ -2,7 +2,7 @@
 
 # Import the modules
 import cv2
-from sklearn.externals import joblib
+import joblib
 from skimage.feature import hog
 import numpy as np
 import argparse as ap
