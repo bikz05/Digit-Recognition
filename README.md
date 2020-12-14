@@ -3,15 +3,13 @@
 This code helps you classify different digits using softmax regression.
 
 ### Sourcerer
-[![] (https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/0)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/0)[![]
-[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/1)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/1)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/2)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/2)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/3)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/3)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/4)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/4)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/5)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/5)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/6)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/6)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/7)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/7)[![]
-
+[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/0)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/0)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/1)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/1)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/2)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/2)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/3)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/3)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/4)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/4)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/5)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/5)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/6)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/6)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/images/7)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/Digit-Recognizer/links/7)
 ### Code Requirements
 You can install Conda for python which resolves all the dependencies for machine learning.
 ### Description
 Softmax Regression (synonyms: Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
 
-<img src="https://github.com/bikz05/Digit-Recognizer/blob/master/logistic.png">
+<img src="https://github.com/akshaybahadur21/Digit-Recognizer/blob/master/logistic.png">
 
 For more information, [see](https://www.kdnuggets.com/2016/07/softmax-regression-related-logistic-regression.html)
 
