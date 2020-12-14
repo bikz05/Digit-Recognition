@@ -1,56 +1,46 @@
 # Digit Recognition
-Handwritten Digit Recognition using OpenCV, sklearn and Python | [Video](https://www.youtube.com/watch?v=ur6JY2Hl-MM)
+[![](https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000)](https://github.com/bikz05/Digit-Recognizer/blob/master/LICENSE.txt)  [![](https://img.shields.io/badge/bikz05-brightgreen.svg?colorB=ff0000)](https://bikz05.com)
+This code helps you classify different digits using softmax regression.
 
-**Check out the blog post [here](http://hanzratech.in/python/handwritten-digit-recognition-using-opencv-sklearn-and-python/) for complete notes on how the code works.**
+### Sourcerer
+[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/0)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/0)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/1)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/1)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/2)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/2)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/3)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/3)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/4)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/4)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/5)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/5)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/6)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/6)[![](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/images/7)](https://sourcerer.io/fame/bikz05/bikz05/Digit-Recognizer/links/7)[![]
 
-# Dependencies
-1. `cv2`
-2. `sklearn`
-3. `skimage`
-4. `numpy`
-5. `collections`
+### Code Requirements
+You can install Conda for python which resolves all the dependencies for machine learning.
+### Description
+Softmax Regression (synonyms: Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
 
-# Contents
-This repository contains the following files-
+<img src="https://github.com/bikz05/Digit-Recognizer/blob/master/logistic.png">
 
-1. `generateClassifier.py` - Python Script to create the classifier file `digits_cls.pkl`.
-2. `performRecognition.py` - Python Script to test the classifier.
-3. `digits_cls.pkl` - Classifier file for digit recognition.
-4. `photo_1.jpg` - Test image number 1 to test the classifier
-5. `photo_2.jpg` - Test image numbre 2 to test the classifier
+For more information, [see](https://www.kdnuggets.com/2016/07/softmax-regression-related-logistic-regression.html)
 
-## Usage 
+### Python  Implementation
 
-* Clone the repository - 
-```bash
-cd 
-git clone https://github.com/bikz05/digit-recognition.git
-cd digit-recognition
+1) Dataset- MNIST dataset
+2) Images of size 28 X 28
+3) Classify digits from 0 to 9
+4) Logistic Regression, Shallow Network and Deep Network Support added.
+
+### Train Acuracy ~ 91 to 99%
+### Test Acuracy ~ 90 to 98%
+
+<img src="https://github.com/akshaybahadur21/Digit-Recognizer/blob/master/final.gif">
+
+### Execution for writing through webcam
+To run the code, type `python Dig-Rec.py`
+
 ```
-* The next step is to train the classifier. To do so run the script `generateClassifier.py`. It will produce the classifier named `digits_cls.pkl`. 
-
-**NOTE** - *I have already created the `digits_cls.pkl`, so this step is not necessary.*
-```python
-python generateClassifier.py
-```
-* To test the classifier, run the `performRecognition.py` script.
-```python
-python performRecognition.py -c <path to classifier file> -i <path to test image>
-```
-ex -
-```python
-python performRecognition.py -c digits_cls.pkl -i photo_1.jpg
+python Dig-Rec.py
 ```
 
-## Results
+<img src="https://github.com/akshaybahadur21/Digit-Recognizer/blob/master/digit.gif">
 
-### Sample Image 1
-![Result Number 1](http://hanzratech.in/figures/digit-reco-1-out.png)
-### Sample Image 2
-![Result Number 2](http://hanzratech.in/figures/digit-reco-2.png)
+### Execution for showing images through webcam
+To run the code, type `python Digit-Recognizer.py`
 
-## TODO
+```
+python Digit-Recognizer.py
+```
 
-* Add a CNN Based approach
-* Reject bounding boxes lesser than some area
-* Look into user errors
+
+
